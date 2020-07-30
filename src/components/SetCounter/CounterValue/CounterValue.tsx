@@ -4,8 +4,8 @@ import classes from "./CounterValue.module.css";
 type PropsType = {
 	getMaxValue: (value: number) => void
 	getStartValue: (value: number) => void
-	setValue: (maxNumber: number, startNumber: number)=>void
-	getCorrectValue:(value: boolean)=>void
+	setValue: (maxNumber: number, startNumber: number) => void
+	getCorrectValue: (value: boolean) => void
 }
 
 export const CounterValue = (props: PropsType) => {
@@ -17,28 +17,31 @@ export const CounterValue = (props: PropsType) => {
 
 	let onChangeMaxHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		setMaxValue((Number(e.currentTarget.value)));
-		if (Number(e.currentTarget.value) > 0 && Number(e.currentTarget.value) > startValue && Number(e.currentTarget.value) !== null) {
+		if (Number(e.currentTarget.value) > 0 && Number(e.currentTarget.value) > startValue) {
 			setMaxPositiveValue(true)
-			setStartPositiveValue(true)
-			props.getMaxValue(Number(e.currentTarget.value))
-			props.getCorrectValue(true)
-
+			if (startValue >= 0) {
+				setStartPositiveValue(true)
+				props.getStartValue(startValue)
+				props.getMaxValue(Number(e.currentTarget.value))
+				props.getCorrectValue(false)
+			}
 		} else {
 			setMaxPositiveValue(false)
-			props.getCorrectValue(false)
+			props.getCorrectValue(true)
 		}
 	}
 
 	let onChangeStartHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		setStartValue((Number(e.currentTarget.value)))
-		if (Number(e.currentTarget.value) >= 0 && Number(e.currentTarget.value) ! < maxValue && Number(e.currentTarget.value) !== null) {
+		if (Number(e.currentTarget.value) >= 0 && Number(e.currentTarget.value) ! < maxValue) {
 			setStartPositiveValue(true)
 			setMaxPositiveValue(true)
 			props.getStartValue(Number(e.currentTarget.value))
-			props.getCorrectValue(true)
+			props.getMaxValue(maxValue)
+			props.getCorrectValue(false)
 		} else {
 			setStartPositiveValue(false)
-			props.getCorrectValue(false)
+			props.getCorrectValue(true)
 		}
 	}
 

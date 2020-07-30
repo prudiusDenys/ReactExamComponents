@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./CounterNumber.module.css";
 
 type PropsType = {
-	startNumber: number
 	maxNumber: number
 	correctValue: boolean
 	showCounter: boolean
@@ -21,7 +20,7 @@ export const CounterNumber = (props: PropsType) => {
 			{
 				!props.showCounter && <div>
 					{
-						props.correctValue ?
+						!props.correctValue ?
 							<div className={classes.enterValues}>
 								enter values and press 'set'
 							</div> :

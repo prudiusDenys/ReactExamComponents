@@ -9,8 +9,9 @@ export const Counter = () => {
 	const [number, setNumber] = useState<number>(0)
 	const [maxNumber, setMaxNumber] = useState<number>(0)
 	const [startNumber, setStartNumber] = useState<number>(0);
-	const [correctValue, setCorrectValue] = useState<boolean>(true)
+	const [correctValue, setCorrectValue] = useState<boolean>(false)
 	const [showCounter, setShowCounter] = useState<boolean>(true)
+	const [disabled, setDisabled] = useState<boolean>(true)
 
 	let onClickHandler = () => {
 		setNumber(number + 1)
@@ -26,11 +27,13 @@ export const Counter = () => {
 	let getMaxValue = (inputValue: number) => {
 		setMaxNumber(inputValue)
 		setShowCounter(false)
+		setDisabled(true)
 	}
 	let getStartValue = (inputValue: number) => {
 		setStartNumber(inputValue)
 		setNumber(inputValue)
 		setShowCounter(false)
+		setDisabled(true)
 	}
 
 	let getCorrectValue = (value: boolean) => {
@@ -39,16 +42,28 @@ export const Counter = () => {
 
 	return (
 		<div className={classes.wrapper}>
-			<SetCounter setValue={setValue} getMaxValue={getMaxValue} getStartValue={getStartValue} startNumber={startNumber}
-									maxNumber={maxNumber} getCorrectValue={getCorrectValue}/>
+			<SetCounter setValue={setValue}
+									getMaxValue={getMaxValue}
+									getStartValue={getStartValue}
+									getCorrectValue={getCorrectValue}
+									correctValue={correctValue}
+									setDisabled={setDisabled}/>
 			<div className={classes.counter}>
-				<CounterNumber startNumber={startNumber} maxNumber={maxNumber} correctValue={correctValue}
-											 showCounter={showCounter} number={number}/>
+				<CounterNumber maxNumber={maxNumber}
+											 correctValue={correctValue}
+											 showCounter={showCounter}
+											 number={number}/>
 				<div className={classes.btnWrapper}>
-					<Button onClickHandler={onClickHandler} title={'INC'} disabledCondition={maxNumber}
+					<Button onClickHandler={onClickHandler}
+									title={'INC'}
+									disabledCondition={maxNumber}
+									number={number}
+									correctValue={correctValue}
+									disabled={disabled}/>
+					<Button onClickHandler={onRestClickHandler}
+									title={'RESET'}
+									disabledCondition={startNumber}
 									number={number}/>
-					<Button onClickHandler={onRestClickHandler} title={'RESET'}
-									disabledCondition={startNumber} number={number}/>
 				</div>
 			</div>
 		</div>

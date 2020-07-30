@@ -22,7 +22,7 @@ export const CounterDefault = () =>{
 	const[disabled, setDisabled]= useState(true)
 	return(
 		<div className={classes.counter}>
-			<CounterNumber startNumber={0} maxNumber={maxNumber} correctValue={correctValue} showCounter={showCounter} number={number}/>
+			<CounterNumber maxNumber={maxNumber} correctValue={correctValue} showCounter={showCounter} number={number}/>
 			<div className={classes.btnWrapper}>
 				<Button onClickHandler={action('Value increase +1 till 5')}  title={'INC'} disabledCondition={maxNumber} number={number}/>
 				<Button onClickHandler={()=> 0}  title={'RESET'} disabledCondition={startNumber} number={number}/>
@@ -39,7 +39,7 @@ export const CounterMaxValue = () =>{
 	const[disabled, setDisabled]= useState(true)
 	return(
 		<div className={classes.counter}>
-			<CounterNumber startNumber={5} maxNumber={maxNumber} correctValue={correctValue} showCounter={showCounter} number={number}/>
+			<CounterNumber maxNumber={maxNumber} correctValue={correctValue} showCounter={showCounter} number={number}/>
 			<div className={classes.btnWrapper}>
 				<Button onClickHandler={()=>0}  title={'INC'} disabledCondition={maxNumber} number={number}/>
 				<Button onClickHandler={action('Value narrow till 0')} title={'RESET'} disabledCondition={startNumber} number={number}/>

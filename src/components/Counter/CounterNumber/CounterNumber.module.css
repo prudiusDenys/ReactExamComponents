@@ -1,0 +1,29 @@
+.counterNumber{
+  padding: 10px;
+}
+
+.number{
+  background-color: aqua;
+  text-align: center;
+  font-size: 100px;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.maxValue{
+  color: red;
+  font-weight: 700;
+}
+.enterValues, .errorValue{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 234px;
+  background-color: aqua;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.errorValue{
+  color: red;
+}

@@ -1,0 +1,22 @@
+.setCounter {
+  width: 400px;
+  background-color: black;
+  margin: 100px 0 0 100px;
+  border: 5px solid aqua;
+  border-radius: 10px;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid aqua;
+  border-radius: 10px;
+  padding: 50px 10px;
+  margin: 10px;
+}
+.btnWrapper{
+  display: block;
+}
+.btnWrapper button{
+  width: 100%;
+}

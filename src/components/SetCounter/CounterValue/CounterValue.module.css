@@ -1,0 +1,30 @@
+.counterValue{
+  padding: 10px;
+}
+.numbers{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 234px;
+  background-color: aqua;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 33px;
+}
+.value{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.valueInput{
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+.error{
+  background-color: indianred;
+}

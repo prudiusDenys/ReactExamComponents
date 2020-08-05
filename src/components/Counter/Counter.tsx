@@ -1,14 +1,13 @@
 import React, {useState} from "react";
 import classes from "./Counter.module.css";
 import {CounterNumber} from "./CounterNumber/CounterNumber";
-import {Button} from "../../common/Button/Button";
 import {SetCounter} from "../SetCounter/SetCounter";
-
+import {Button} from "../../common/Button/Button";
 
 export const Counter = () => {
 
 	const [number, setNumber] = useState<number>(0)
-	const [maxNumber, setMaxNumber] = useState<number>(0)
+	const [maxNumber, setMaxNumber] = useState(0)
 	const [startNumber, setStartNumber] = useState<number>(0);
 	const [correctValue, setCorrectValue] = useState<boolean>(false)
 	const [showCounter, setShowCounter] = useState<boolean>(true)
@@ -50,7 +49,9 @@ export const Counter = () => {
 									getStartValue={getStartValue}
 									getCorrectValue={getCorrectValue}
 									correctValue={correctValue}
-									setDisabled={setDisabled}/>
+									setDisabled={setDisabled}
+									maxNumber={maxNumber}
+									startNumber={startNumber} setMaxNumber={setMaxNumber}/>
 			<div className={classes.counter}>
 				<CounterNumber maxNumber={maxNumber}
 											 correctValue={correctValue}

@@ -1,8 +1,8 @@
 import React, {ChangeEvent} from "react";
-import classes from "../../components/SetCounter/CounterValue/CounterValue.module.css";
+import {TextField} from "@material-ui/core";
 
 type PropsType = {
-	value: string
+	label: string
 	positiveValue: boolean
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
@@ -11,10 +11,12 @@ export const Input = (props: PropsType) => {
 
 	return (
 		<div>
-			{props.value}: <input onChange={props.onChange}
-														className={!props.positiveValue ?
-															`${classes.error} ${classes.valueInput}` : classes.valueInput}
-														type="number"/>
+			<TextField style={{marginBottom: '20px'}} onChange={props.onChange}
+								 error={!props.positiveValue}
+								 helperText={!props.positiveValue ? 'incorrect value': ''}
+								 type="number"
+								 variant={"outlined"}
+								 label={props.label}/>
 		</div>
 	)
 }

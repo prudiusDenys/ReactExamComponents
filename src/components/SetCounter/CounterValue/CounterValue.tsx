@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useState} from "react";
 import classes from "./CounterValue.module.css";
 import {Input} from "../../../common/Input/Input";
+import {restoreState} from "../../../localStorage/localStorageFunctions";
 
 type PropsType = {
 	getMaxValue: (value: number) => void
@@ -13,8 +14,8 @@ export const CounterValue = (props: PropsType) => {
 
 	const [maxPositiveValue, setMaxPositiveValue] = useState<boolean>(true);
 	const [startPositiveValue, setStartPositiveValue] = useState<boolean>(true);
-	const [maxValue, setMaxValue] = useState(0)
-	const [startValue, setStartValue] = useState(0)
+	const [maxValue, setMaxValue] = useState(restoreState('maxNumber', 0))
+	const [startValue, setStartValue] = useState(restoreState('startNumber', 0))
 
 	let onChangeMaxHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		setMaxValue((Number(e.currentTarget.value)));
@@ -48,18 +49,13 @@ export const CounterValue = (props: PropsType) => {
 	return (
 		<div className={classes.counterValue}>
 			<div className={classes.numbers}>
-				<div className={classes.value}>
 					<Input key={1}
-								 value={'max value'}
 								 positiveValue={maxPositiveValue}
-								 onChange={onChangeMaxHandler}/>
-				</div>
-				<div className={classes.value}>
+								 onChange={onChangeMaxHandler} label={'max value'}/>
+
 					<Input key={2}
-								 value={'start value'}
 								 positiveValue={startPositiveValue}
-								 onChange={onChangeStartHandler}/>
-				</div>
+								 onChange={onChangeStartHandler} label={'start value'}/>
 			</div>
 		</div>
 	)

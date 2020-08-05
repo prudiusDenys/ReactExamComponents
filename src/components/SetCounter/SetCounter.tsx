@@ -1,23 +1,29 @@
-import React, {useState} from "react";
+import React from "react";
 import classes from "./SetCounter.module.css";
 import {Button} from "../../common/Button/Button";
 import {CounterValue} from "./CounterValue/CounterValue";
+import {saveState} from "../../localStorage/localStorageFunctions";
 
 type PropsType = {
-	setValue: () => void
+	setValue: ()=>void
 	getMaxValue: (value: number) => void
 	getStartValue: (value: number) => void
-	getCorrectValue: (value: boolean) => void
+	getCorrectValue:(value: boolean)=>void
 	correctValue: boolean
-	setDisabled: (disabled: boolean) => void
+	setDisabled:(disabled: boolean)=>void
+	maxNumber: number
+	startNumber: number
+	setMaxNumber:(maxNumber: number)=> void
 }
 
-export const SetCounter = (props: PropsType) => {
+export const SetCounter = (props:  PropsType) => {
 
-	let onClickSetValue = () => {
-		props.setValue()
-		props.setDisabled(false)
-	}
+let onClickSetValue = () => {
+	props.setValue()
+	props.setDisabled(false)
+	saveState('maxNumber', props.maxNumber);
+	saveState('startNumber', props.startNumber);
+}
 
 	return (
 		<div className={classes.setCounter}>
@@ -29,7 +35,7 @@ export const SetCounter = (props: PropsType) => {
 				<Button onClickHandler={onClickSetValue}
 								title={'SET'}
 								disabledCondition={0}
-								correctValue={props.correctValue}/>
+								correctValue={props.correctValue} />
 			</div>
 		</div>
 	)

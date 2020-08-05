@@ -4,20 +4,20 @@ import {Button} from "../../common/Button/Button";
 import {CounterValue} from "./CounterValue/CounterValue";
 
 type PropsType = {
-	setValue: ()=>void
+	setValue: () => void
 	getMaxValue: (value: number) => void
 	getStartValue: (value: number) => void
-	getCorrectValue:(value: boolean)=>void
+	getCorrectValue: (value: boolean) => void
 	correctValue: boolean
-	setDisabled:(disabled: boolean)=>void
+	setDisabled: (disabled: boolean) => void
 }
 
-export const SetCounter = (props:  PropsType) => {
+export const SetCounter = (props: PropsType) => {
 
-let onClickSetValue = () => {
-	props.setValue()
-	props.setDisabled(false)
-}
+	let onClickSetValue = () => {
+		props.setValue()
+		props.setDisabled(false)
+	}
 
 	return (
 		<div className={classes.setCounter}>
@@ -29,7 +29,7 @@ let onClickSetValue = () => {
 				<Button onClickHandler={onClickSetValue}
 								title={'SET'}
 								disabledCondition={0}
-								correctValue={props.correctValue} />
+								correctValue={props.correctValue}/>
 			</div>
 		</div>
 	)

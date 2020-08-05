@@ -4,6 +4,7 @@ import {CounterNumber} from "./CounterNumber/CounterNumber";
 import {Button} from "../../common/Button/Button";
 import {SetCounter} from "../SetCounter/SetCounter";
 
+
 export const Counter = () => {
 
 	const [number, setNumber] = useState<number>(0)
@@ -12,6 +13,7 @@ export const Counter = () => {
 	const [correctValue, setCorrectValue] = useState<boolean>(false)
 	const [showCounter, setShowCounter] = useState<boolean>(true)
 	const [disabled, setDisabled] = useState<boolean>(true)
+
 
 	let onClickHandler = () => {
 		setNumber(number + 1)
@@ -38,6 +40,7 @@ export const Counter = () => {
 
 	let getCorrectValue = (value: boolean) => {
 		setCorrectValue(value)
+		setShowCounter(false)
 	}
 
 	return (
@@ -67,6 +70,5 @@ export const Counter = () => {
 				</div>
 			</div>
 		</div>
-
 	)
 }

@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import classes from "./CounterValue.module.css";
+import {Input} from "../../../common/Input/Input";
 
 type PropsType = {
 	getMaxValue: (value: number) => void
@@ -30,7 +31,6 @@ export const CounterValue = (props: PropsType) => {
 			props.getCorrectValue(true)
 		}
 	}
-
 	let onChangeStartHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		setStartValue((Number(e.currentTarget.value)))
 		if (Number(e.currentTarget.value) >= 0 && Number(e.currentTarget.value) ! < maxValue) {
@@ -45,19 +45,20 @@ export const CounterValue = (props: PropsType) => {
 		}
 	}
 
-
 	return (
 		<div className={classes.counterValue}>
 			<div className={classes.numbers}>
 				<div className={classes.value}>
-					max value: <input onChange={onChangeMaxHandler}
-														className={!maxPositiveValue ? `${classes.error} ${classes.valueInput}` : classes.valueInput}
-														type="number"/>
+					<Input key={1}
+								 value={'max value'}
+								 positiveValue={maxPositiveValue}
+								 onChange={onChangeMaxHandler}/>
 				</div>
 				<div className={classes.value}>
-					start value: <input onChange={onChangeStartHandler}
-															className={!startPositiveValue ? `${classes.error} ${classes.valueInput}` : classes.valueInput}
-															type="number"/>
+					<Input key={2}
+								 value={'start value'}
+								 positiveValue={startPositiveValue}
+								 onChange={onChangeStartHandler}/>
 				</div>
 			</div>
 		</div>

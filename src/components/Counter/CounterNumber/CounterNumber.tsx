@@ -9,6 +9,7 @@ type PropsType = {
 }
 
 export const CounterNumber = (props: PropsType) => {
+	debugger
 	return (
 		<div className={classes.counterNumber}>
 			{

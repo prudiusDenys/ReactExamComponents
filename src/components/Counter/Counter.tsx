@@ -13,31 +13,27 @@ export const Counter = () => {
 	const [showCounter, setShowCounter] = useState<boolean>(true)
 	const [disabled, setDisabled] = useState<boolean>(true)
 
-
-	let onClickHandler = () => {
+	const onClickHandler = () => {
 		setNumber(number + 1)
 	}
-	let onRestClickHandler = () => {
+	const onRestClickHandler = () => {
 		setNumber(startNumber)
 	}
-
-	let setValue = () => {
+	const setValue = () => {
 		setShowCounter(true)
 	}
-
-	let getMaxValue = (inputValue: number) => {
+	const getMaxValue = (inputValue: number) => {
 		setMaxNumber(inputValue)
 		setShowCounter(false)
 		setDisabled(true)
 	}
-	let getStartValue = (inputValue: number) => {
+	const getStartValue = (inputValue: number) => {
 		setStartNumber(inputValue)
 		setNumber(inputValue)
 		setShowCounter(false)
 		setDisabled(true)
 	}
-
-	let getCorrectValue = (value: boolean) => {
+	const getCorrectValue = (value: boolean) => {
 		setCorrectValue(value)
 		setShowCounter(false)
 	}
@@ -51,7 +47,7 @@ export const Counter = () => {
 									correctValue={correctValue}
 									setDisabled={setDisabled}
 									maxNumber={maxNumber}
-									startNumber={startNumber} setMaxNumber={setMaxNumber}/>
+									startNumber={startNumber}/>
 			<div className={classes.counter}>
 				<CounterNumber maxNumber={maxNumber}
 											 correctValue={correctValue}

@@ -51,11 +51,15 @@ export const CounterValue = (props: PropsType) => {
 			<div className={classes.numbers}>
 					<Input key={1}
 								 positiveValue={maxPositiveValue}
-								 onChange={onChangeMaxHandler} label={'max value'}/>
+								 onChange={onChangeMaxHandler}
+								 value={'max value'}
+								 valueNumber={maxValue}/>
 
 					<Input key={2}
 								 positiveValue={startPositiveValue}
-								 onChange={onChangeStartHandler} label={'start value'}/>
+								 onChange={onChangeStartHandler}
+								 value={'start value'}
+								 valueNumber={startValue}/>
 			</div>
 		</div>
 	)

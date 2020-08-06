@@ -13,7 +13,6 @@ type PropsType = {
 	setDisabled:(disabled: boolean)=>void
 	maxNumber: number
 	startNumber: number
-	setMaxNumber:(maxNumber: number)=> void
 }
 
 export const SetCounter = (props:  PropsType) => {
@@ -24,7 +23,6 @@ let onClickSetValue = () => {
 	saveState('maxNumber', props.maxNumber);
 	saveState('startNumber', props.startNumber);
 }
-
 	return (
 		<div className={classes.setCounter}>
 			<CounterValue getMaxValue={props.getMaxValue}
@@ -35,7 +33,7 @@ let onClickSetValue = () => {
 				<Button onClickHandler={onClickSetValue}
 								title={'SET'}
 								disabledCondition={0}
-								correctValue={props.correctValue} />
+								correctValue={props.correctValue}/>
 			</div>
 		</div>
 	)

@@ -13,7 +13,7 @@ export const CounterNumber = (props: PropsType) => {
 		<div className={classes.counterNumber}>
 			{
 				props.showCounter &&
-        <div className={props.number === props.maxNumber ? `${classes.number} ${classes.maxValue}` : classes.number}>
+        <div className={props.number === props.maxNumber && props.maxNumber!==0 ? `${classes.number} ${classes.maxValue}` : classes.number}>
 					{props.number}
         </div>
 			}

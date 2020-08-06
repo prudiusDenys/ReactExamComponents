@@ -5,7 +5,6 @@ import {CounterValue} from "./CounterValue/CounterValue";
 import {saveState} from "../../localStorage/localStorageFunctions";
 
 type PropsType = {
-	setValue: ()=>void
 	getMaxValue: (value: number) => void
 	getStartValue: (value: number) => void
 	getCorrectValue:(value: boolean)=>void
@@ -13,12 +12,13 @@ type PropsType = {
 	setDisabled:(disabled: boolean)=>void
 	maxNumber: number
 	startNumber: number
+	setShowCounter:(showCounter: boolean)=>void
 }
 
 export const SetCounter = (props:  PropsType) => {
 
 let onClickSetValue = () => {
-	props.setValue()
+	props.setShowCounter(true)
 	props.setDisabled(false)
 	saveState('maxNumber', props.maxNumber);
 	saveState('startNumber', props.startNumber);
@@ -27,8 +27,9 @@ let onClickSetValue = () => {
 		<div className={classes.setCounter}>
 			<CounterValue getMaxValue={props.getMaxValue}
 										getStartValue={props.getStartValue}
-										setValue={props.setValue}
-										getCorrectValue={props.getCorrectValue}/>
+										getCorrectValue={props.getCorrectValue}
+										maxNumber={props.maxNumber}
+										startNumber={props.startNumber}/>
 			<div className={classes.btnWrapper}>
 				<Button onClickHandler={onClickSetValue}
 								title={'SET'}

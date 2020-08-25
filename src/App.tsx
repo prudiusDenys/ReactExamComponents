@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import {Counter} from "./components/Counter/Counter";
+import {CounterWithRedux} from "./components/Counter/CounterwithRedux";
 
 const App = () => {
 	return (
 		<div className="App">
-				<Counter/>
+			<CounterWithRedux/>
 		</div>
 	);
 }

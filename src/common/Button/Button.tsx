@@ -11,6 +11,7 @@ type PropsType = {
 }
 
 export const Button = (props: PropsType) => {
+	debugger
 	return (
 		<div className={classes.wrapper}>
 			<button disabled={ props.disabled || props.correctValue ||  props.number === props.disabledCondition}

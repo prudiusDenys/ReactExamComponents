@@ -1,4 +1,4 @@
-import {counterReduce, getCorrectValue, getMaxValue, getStartNumber, restStartNumber, setNumber} from "./counterReduce";
+import {counterReduce, getCorrectInputValue, getMaxNumber, getStartNumber, restStartNumber, setNumber} from "./counterReduce";
 
 test('number should be equal 1', () => {
 
@@ -44,7 +44,7 @@ test('maxNumber should be equal 5. showCounter should be equal false', () => {
 
 	const maxNumber = 5;
 
-	const endState = counterReduce(startState, getMaxValue(maxNumber))
+	const endState = counterReduce(startState, getMaxNumber(maxNumber))
 
 	expect(endState.number).toBe(0)
 	expect(endState.startNumber).toBe(0)
@@ -86,7 +86,7 @@ test('correctValue should be equal true', () => {
 
 	const setCorrectValue = true;
 
-	const endState = counterReduce(startState, getCorrectValue(setCorrectValue))
+	const endState = counterReduce(startState, getCorrectInputValue(setCorrectValue))
 
 	expect(endState.correctValue).toBe(true)
 	expect(endState.showCounter).toBe(false)

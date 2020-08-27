@@ -59,7 +59,7 @@ type ActionsType =
 	| RestNumberType
 	| SetValueType
 
-export const counterReduce = (state: StateType = initialState, action: ActionsType) => {
+export const counterReduce = (state: StateType = initialState, action: ActionsType): StateType => {
 
 	switch (action.type) {
 		case SET_NUMBER: {

@@ -1,3 +1,5 @@
+import {restoreState} from "../../localStorage/localStorageFunctions";
+
 const SET_NUMBER = 'SET_NUMBER'
 const GET_MAX_NUMBER = 'GET_MAX_NUMBER'
 const GET_START_NUMBER = 'GET_START_NUMBER'
@@ -40,26 +42,31 @@ type SetValueType = {
 }
 
 
-const initialState = {
-	number: 0,
-	maxNumber: 0,
-	startNumber: 0,
+const initialState: StateType = {
+	number: restoreState('startNumber', 0),
+	maxNumber: restoreState('maxNumber', 0),
+	startNumber: restoreState('startNumber', 0),
 	correctValue: false,
 	showCounter: true,
 	disabled: true
 }
 
-type ActionsType = SetNumberType | GetMaxValueType | GetStartValueType | GetCorrectValueType | RestNumberType | SetValueType
+type ActionsType =
+	SetNumberType
+	| GetMaxValueType
+	| GetStartValueType
+	| GetCorrectValueType
+	| RestNumberType
+	| SetValueType
 
 export const counterReduce = (state: StateType = initialState, action: ActionsType) => {
 
 	switch (action.type) {
 		case SET_NUMBER: {
-			debugger
-				return {
-					...state,
-					number: action.number
-				}
+			return {
+				...state,
+				number: action.number
+			}
 		}
 		case START_NUMBER: {
 			return {
@@ -108,8 +115,8 @@ export const setNumber = (number: number): SetNumberType => {
 	return {type: SET_NUMBER, number}
 }
 
-export const restStartNumber = (startNumber:number):RestNumberType  => {
-	return {type:START_NUMBER, startNumber}
+export const restStartNumber = (startNumber: number): RestNumberType => {
+	return {type: START_NUMBER, startNumber}
 }
 
 export const getMaxNumber = (inputValue: number): GetMaxValueType => {
